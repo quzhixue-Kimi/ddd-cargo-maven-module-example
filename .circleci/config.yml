@@ -36,9 +36,6 @@ commands:
   build-service:
     description: "Build a service and push image to dockerhub"
     steps:
-      # git pull
-      - checkout:
-          path: ~/ddd-cargo-maven-module-example
       - restore_cache:
           key: cargo-start-{{ checksum "pom.xml" }}
       - setup_remote_docker
