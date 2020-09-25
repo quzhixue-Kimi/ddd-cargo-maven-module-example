@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: cargo
-        image: kimiqu/cargo-start:Build-37-CI
+        image: kimiqu/cargo-start:Build-39-CI
         imagePullPolicy: IfNotPresent
         resources:
           requests:
