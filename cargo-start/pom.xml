@@ -60,7 +60,6 @@
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
@@ -69,7 +68,6 @@
         </configuration>
       </plugin>
     </plugins>
-
     <pluginManagement>
       <plugins>
         <!-- Spotify Dockerfile Maven -->

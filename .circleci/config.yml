@@ -27,6 +27,48 @@ jobs:
           service-name: "cargo-start"
       - build-service:
           service-name: "cargo-start"
+  cargo-api:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-api"
+  cargo-application:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-application"
+  cargo-domain:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-application"
+  cargo-infrastructure:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-application"
+  cargo-query:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-query"
+  cargo-shared:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/ddd-cargo-maven-module-example
+    steps:
+      - install-jar:
+          service-name: "cargo-shared"
 
 commands:
   install-jar:
@@ -39,7 +81,7 @@ commands:
         path: ~/ddd-cargo-maven-module-example
     - restore_cache:
         key: << parameters.service-name >>-{{ checksum "pom.xml" }}
-    - run: mvn install package
+    - run: mvn package install
     - save_cache:
         paths:
           - ~/.m2
