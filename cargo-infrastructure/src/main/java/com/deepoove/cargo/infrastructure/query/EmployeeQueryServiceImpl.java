@@ -1,12 +1,9 @@
 package com.deepoove.cargo.infrastructure.query;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.deepoove.Cache;
 import com.deepoove.cargo.api.query.EmployeeQueryService;
-import com.deepoove.cargo.domain.aggregate.employee.Employee;
 import com.deepoove.cargo.infrastructure.assembler.EmployeeDTOAssembler;
 import com.deepoove.cargo.infrastructure.db.dataobject.EmployeeDO;
 import com.deepoove.cargo.infrastructure.db.mapper.EmployeeMapper;
@@ -28,11 +25,6 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 
   @Override
   public List<EmployeeDTO> queryEmployees() {
-    // Employee e = (Employee) Cache.redis.get("new");
-    // EmployeeDO eo =
-    // EmployeeDO.builder().id(e.getId()).name(e.getName()).gender(e.getGender()).title(e.getTitle())
-    // .yearsOfService(e.getYearsOfService()).age(e.getAge()).build();
-    // List<EmployeeDO> lst = Arrays.asList(eo);
     List<EmployeeDO> employees = employeeMapper.all();
     return employees.stream().map(converter::apply).collect(Collectors.toList());
   }
