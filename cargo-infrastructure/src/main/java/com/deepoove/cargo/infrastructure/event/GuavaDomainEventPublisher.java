@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class GuavaDomainEventPublisher implements DomainEventPublisher {
 
   @Autowired
-  EventBus eventBus;
+  private EventBus eventBus;
 
   public void publish(Object event) {
     eventBus.post(event);
