@@ -74,6 +74,8 @@ commands:
     description: maven install jar files
     parameters:
       service-name:
+        description: the service name parameter
+        default: "ddd-cargo"
         type: string
     steps:
     - checkout:
@@ -89,6 +91,8 @@ commands:
     description: "Build a service and push image to dockerhub"
     parameters:
       service-name:
+        description: the service name parameter
+        default: "ddd-cargo"
         type: string
     steps:
     - setup_remote_docker
